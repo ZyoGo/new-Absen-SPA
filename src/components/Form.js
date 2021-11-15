@@ -32,7 +32,7 @@ const WithMaterialUI = () => {
     onSubmit: async (values, { resetForm }) => {
       let data = {};
       if (new Date().toLocaleTimeString() < 12) {
-        const data = {
+        data = {
           id: nanoid(16),
           Nama: values.Nama,
           NIS: values.NIS,
@@ -44,7 +44,7 @@ const WithMaterialUI = () => {
         console.log(data);
         resetForm();
       } else {
-        const data = {
+        data = {
           id: nanoid(16),
           Nama: values.Nama,
           NIS: values.NIS,
@@ -57,7 +57,7 @@ const WithMaterialUI = () => {
       }
       try {
         const res = await fetch(
-          'https://sheet.best/api/sheets/a5cd8656-837b-486d-b53d-7d4b80058ffe',
+          `https://sheet.best/api/sheets/a5cd8656-837b-486d-b53d-7d4b80058ffe`,
           {
             method: 'POST',
             headers: {
@@ -66,7 +66,7 @@ const WithMaterialUI = () => {
             body: JSON.stringify(data),
           }
         );
-        console.log(res);
+        console.log(JSON.stringify(data));
 
         if (res.ok) {
           navigate('/');
